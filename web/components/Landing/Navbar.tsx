@@ -36,9 +36,9 @@ export default function Navbar() {
           >
             Contact
           </Button>
-          <Link href="/auth/login" className="flex bg-primary py-2 px-4 rounded-md items-center gap-2">
+          {/* <Link href="/auth/login" className="flex bg-primary py-2 px-4 rounded-md items-center gap-2">
             Sign Up<ArrowRight className="h-4 w-4" />
-          </Link>
+          </Link> */}
           <ModeToggle />
         </div>
       </nav>
