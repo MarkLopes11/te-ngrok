@@ -1,2 +1,2 @@
 #!/bin/bash
-uvicorn routes:app --host 0.0.0.0 --port 8000 --reload
+uvicorn routes:app --host 0.0.0.0 --port $PORT --reload
