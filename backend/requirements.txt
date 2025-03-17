@@ -13,3 +13,4 @@ pytest
 fastapi
 httpx
 gunicorn
+uvicorn
