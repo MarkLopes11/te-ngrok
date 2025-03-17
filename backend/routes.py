@@ -95,7 +95,7 @@ def get_youtube_title(video_url):
         if not video_id:
             return "Unknown Title"
 
-        ydl_opts = {"quiet": True}
+        ydl_opts = {"quiet": True, "cookies": "youtube_cookies.txt"}
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(video_url, download=False)
             if info:
@@ -140,6 +140,7 @@ def download_audio(youtube_url):
         ydl_opts = {
             "format": "bestaudio/best",
             "outtmpl": f"{audio_dir}/{video_id}.%(ext)s",
+            "cookies": "youtube_cookies.txt", 
         }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(youtube_url, download=True) or {}

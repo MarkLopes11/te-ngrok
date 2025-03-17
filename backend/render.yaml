@@ -1,0 +1,14 @@
+# render.yaml
+services:
+  - type: web
+    name: TubeTalk  # Replace with your desired service name
+    runtime: python
+    buildCommand: |
+      pip install -r requirements.txt
+      mkdir -p config  # Create a directory for config files
+      cp youtube_cookies.txt config/youtube_cookies.txt # Copy cookies to config dir
+    startCommand: uvicorn routes:app --host 0.0.0.0 --port $PORT 
+
+    envVars:
+      - key: YOUTUBE_COOKIES_PATH
+        value: /app/config/youtube_cookies.txt  # Path to copied cookies on Render
