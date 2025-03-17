@@ -35,6 +35,10 @@ summary_inmem_db: Dict[str, str | list[str | dict]] = {}
 # API Keys - read from environment variables
 gemini_api_key = SecretStr(os.getenv("GEMINI_API_KEY", ""))
 assemblyai_api_key = os.getenv("ASSEMBLYAI_API_KEY")
+cookies_content = os.getenv("YOUTUBE_COOKIES_CONTENT")
+if cookies_content:
+    with open("youtube_cookies.txt", "w") as f:
+        f.write(cookies_content)
 
 if assemblyai_api_key:
     aai.settings.api_key = assemblyai_api_key
